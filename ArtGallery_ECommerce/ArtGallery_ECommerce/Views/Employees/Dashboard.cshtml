@@ -12,11 +12,11 @@
 
 <div class="row justify-content-center">
     <div class="btn-group-vertical col-md-4" data-toggle="buttons">
-        <button type="button" class="btn btn-primary btn-lg">Button</button>
+        <button type="button" class="btn btn-primary btn-lg" onclick="location.href='@Url.Action("Create", "Products")'">Add Products</button>
         <br />
-        <button type="button" class="btn btn-primary btn-lg">Button</button>
+        <button type="button" class="btn btn-primary btn-lg" onclick="location.href='@Url.Action("Index", "Products")'">Edit Products</button>
         <br />
-        <button type="button" class="btn btn-primary btn-lg">Button</button>
+        <button type="button" class="btn btn-primary btn-lg" onclick="location.href='@Url.Action("Index", "Products")'">View Products</button>
     </div>
     <div class=" col-md-4">
         <a href="~/StoreFront/Index/1">
@@ -30,11 +30,11 @@
     </div>
 
     <div class="btn-group-vertical col-md-4" data-toggle="buttons">
-        <button type="button" class="btn btn-primary btn-lg">Button</button>
+        <button type="button" class="btn btn-primary btn-lg" onclick="location.href='@Url.Action("Index", "Shipments")'">DON'T CLICK ME View Shipments</button>
         <br />
-        <button type="button" class="btn btn-primary btn-lg">Button</button>
+        <button type="button" class="btn btn-primary btn-lg" onclick="location.href='@Url.Action("Index", "Orders")'">DONT' CLICK ME View Orders</button>
         <br />
-        <button type="button" class="btn btn-primary btn-lg">Button</button>
+        <button type="button" class="btn btn-primary btn-lg" onclick="location.href='@Url.Action("Edit", "Employees")'">Edit Account</button>
     </div>
 </div>
 
