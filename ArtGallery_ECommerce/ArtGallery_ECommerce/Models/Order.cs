@@ -10,8 +10,14 @@ namespace ArtGallery_ECommerce.Models
     public class Order
     {
         [Key]
-        public int OrderID { get; set; }
+        [Column(Order = 0)]
+        public int ProductId { get; set; }
 
+        [Key]
+        [Column(Order = 1)]
+        public int CustomerOrderId { get; set; }
+
+        public int Quantity { get; set; }
         [Display(Name = "Tracking Number")]
         public string TrackingId { get; set; }
 
@@ -33,5 +39,8 @@ namespace ArtGallery_ECommerce.Models
 
         [Display(Name = "Customer")]
         public Customer Buyer { get; set; }
+        
+        
+
     }
 }
