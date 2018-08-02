@@ -1,4 +1,4 @@
-﻿@model ArtGallery_ECommerce.Models.Categories
+﻿@model ArtGallery_ECommerce.ViewModels.StoreFrontIndexViewModel
 
 @{
     ViewBag.Title = "Index";
@@ -6,120 +6,149 @@
 }
 
 <h2>Index</h2>
-<br/>
-<br/>
+<br />
+<br />
 
 <div class="row">
     <div class="col-xs-12 col-md-12">
         <ul class="nav nav-pills nav-stacked">
-            @if (Model.Name == "Abstract")
-            {
-                <li class="active">
-                    <a href="~/StoreFront/Index/1">Abstract</a>
-                </li>
-            }
-            else
+
+            @if (Model.Category == null)
             {
                 <li>
                     <a href="~/StoreFront/Index/1">Abstract</a>
                 </li>
-            }
-            @if (Model.Name == "Art Nouveau")
-            {
-                <li class="active">
-                    <a href="~/StoreFront/Index/2">Art Nouveau</a>
-                </li>
-            }
-            else
-            {
                 <li>
                     <a href="~/StoreFront/Index/2">Art Nouveau</a>
                 </li>
-            }
-            @if (Model.Name == "Expressionism")
-            {
-                <li class="active">
-                    <a href="~/StoreFront/Index/5">Expressionism</a>
-                </li>
-            }
-            else
-            {
                 <li>
                     <a href="~/StoreFront/Index/5">Expressionism</a>
                 </li>
-            }
-            @if (Model.Name == "Impressionism")
-            {
-                <li class="active">
-                    <a href="~/StoreFront/Index/3">Impressionism</a>
-                </li>
-            }
-            else
-            {
                 <li>
                     <a href="~/StoreFront/Index/3">Impressionism</a>
                 </li>
-            }
-            @if (Model.Name == "Photorealism")
-            {
-                <li class="active">
-                    <a href="~/StoreFront/Index/6">Photorealism</a>
-                </li>
-            }
-            else
-            {
                 <li>
                     <a href="~/StoreFront/Index/6">Photorealism</a>
                 </li>
-            }
-            @if (Model.Name == "Pop Art")
-            {
-                <li class="active">
-                    <a href="~/StoreFront/Index/7">Pop Art</a>
-                </li>
-            }
-            else
-            {
                 <li>
                     <a href="~/StoreFront/Index/7">Pop Art</a>
                 </li>
-            }
-            @if (Model.Name == "Realism")
-            {
-                <li class="active">
-                    <a href="~/StoreFront/Index/4">Realism</a>
-                </li>
-            }
-            else
-            {
                 <li>
                     <a href="~/StoreFront/Index/4">Realism</a>
                 </li>
             }
 
+            @if (Model.Category != null)
+            {
+                if (Model.Category.Name == "Abstract")
+                {
+                    <li class="active">
+                        <a href="~/StoreFront/Index/1">Abstract</a>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <a href="~/StoreFront/Index/1">Abstract</a>
+                    </li>
+                }
+                if (Model.Category.Name == "Art Nouveau")
+                {
+                    <li class="active">
+                        <a href="~/StoreFront/Index/2">Art Nouveau</a>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <a href="~/StoreFront/Index/2">Art Nouveau</a>
+                    </li>
+                }
+                if (Model.Category.Name == "Expressionism")
+                {
+                    <li class="active">
+                        <a href="~/StoreFront/Index/5">Expressionism</a>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <a href="~/StoreFront/Index/5">Expressionism</a>
+                    </li>
+                }
+                if (Model.Category.Name == "Impressionism")
+                {
+                    <li class="active">
+                        <a href="~/StoreFront/Index/3">Impressionism</a>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <a href="~/StoreFront/Index/3">Impressionism</a>
+                    </li>
+                }
+                if (Model.Category.Name == "Photorealism")
+                {
+                    <li class="active">
+                        <a href="~/StoreFront/Index/6">Photorealism</a>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <a href="~/StoreFront/Index/6">Photorealism</a>
+                    </li>
+                }
+                if (Model.Category.Name == "Pop Art")
+                {
+                    <li class="active">
+                        <a href="~/StoreFront/Index/7">Pop Art</a>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <a href="~/StoreFront/Index/7">Pop Art</a>
+                    </li>
+                }
+                if (Model.Category.Name == "Realism")
+                {
+                    <li class="active">
+                        <a href="~/StoreFront/Index/4">Realism</a>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <a href="~/StoreFront/Index/4">Realism</a>
+                    </li>
+                }
+            }
         </ul>
     </div>
-    </div>
-    <div class="col-xs-12 col-md-9">
-        <div class="row">
-            @foreach (var product in Model.Products)
-            {
-                <div class="col-xs-12 col-md-3">
-                    <div class="thumbnail">
-                        <img class="img-responsive" src="~/Content/Images/Products/@(product.Name).png">
-                        <div class="caption text-center">
-                            <p>
-                                <b>Name:</b> <span>@product.Name</span>
-                            </p>
-                            <p>
-                                <b>Price:</b> <span>@product.Price USD</span>
-                            </p>
-                            <p class="text-center">
-                                @Html.ActionLink("Add to cart", "AddToCart", "ShoppingCart", new { id = product.ProductId }, new { @class = "btn btn-info" })
-                            </p>
-                        </div>
+</div>
+<div class="col-xs-12 col-md-9">
+    <div class="row">
+        @foreach (var product in Model.DisplayProducts)
+        {
+            <div class="col-xs-12 col-md-3">
+                <div class="thumbnail">
+                    <img class="Display" src=@Url.Content(product.FileImagePath)>
+                    <div class="caption text-center">
+                        <p>
+                            <b>Name:</b> <span>@product.Name</span>
+                        </p>
+                        <p>
+                            <b>Price:</b> <span>@product.Price USD</span>
+                        </p>
+                        <p class="text-center">
+                            @Html.ActionLink("Product Info", "Details", "Products", new { id = product.ProductId }, new { @class = "btn btn-info" })
+                            @Html.ActionLink("Add to cart", "AddToCart", "ShoppingCart", new { id = product.ProductId }, new { @class = "btn btn-info" })
+                        </p>
                     </div>
                 </div>
-            }
-        </div>
+            </div>
+        }
     </div>
+</div>
