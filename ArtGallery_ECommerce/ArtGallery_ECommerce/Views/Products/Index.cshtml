@@ -33,7 +33,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Description)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.FileImagePath)
+        </th>
     </tr>
 
 @foreach (var item in Model) {
@@ -59,6 +61,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.Description)
         </td>
+
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ProductId }) |
             @Html.ActionLink("Details", "Details", new { id=item.ProductId }) |
