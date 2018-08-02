@@ -253,6 +253,8 @@
     <Compile Include="Startup.cs" />
     <Compile Include="Utils\Extensions.cs" />
     <Compile Include="Utils\IFormFile.cs" />
+    <Compile Include="ViewModels\CartViewModel.cs" />
+    <Compile Include="ViewModels\StoreFrontIndexViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
