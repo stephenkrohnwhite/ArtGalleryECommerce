@@ -16,7 +16,7 @@ namespace ArtGallery_ECommerce.Models
         public string Name { get; set; }
 
         public string Artist { get; set; }
-
+        [DataType(DataType.Currency)]
         public double Price { get; set; }
 
         [Display(Name = "Available")]
