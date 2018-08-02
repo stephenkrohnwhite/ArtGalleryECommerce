@@ -10,7 +10,8 @@ namespace ArtGallery_ECommerce.ViewModels
     public class CartViewModel
     {
         Customer Buyer { get; set; }
-        public IEnumerable<Products> Cart { get; set; }
+        
+        public List<Cart> CartItems { get; set; }
         [Display(Name = "Total")]
         [DataType(DataType.Currency)]
         public Double CartTotal { get; set; }

@@ -31,5 +31,7 @@ namespace ArtGallery_ECommerce.Models
         public Address Address { get; set; }
 
         public IEnumerable<Products> Cart { get; set; }
+        [DataType(DataType.Currency)]
+        public double Amount { get; set; }
     }
 }

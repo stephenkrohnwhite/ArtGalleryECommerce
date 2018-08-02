@@ -190,6 +190,23 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Migrations\201808021512373_adding cart model to db.cs" />
+    <Compile Include="Migrations\201808021512373_adding cart model to db.Designer.cs">
+      <DependentUpon>201808021512373_adding cart model to db.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808021733040_adding product id to cart.cs" />
+    <Compile Include="Migrations\201808021733040_adding product id to cart.Designer.cs">
+      <DependentUpon>201808021733040_adding product id to cart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808022232460_added productid and customer orderid to junction table.cs" />
+    <Compile Include="Migrations\201808022232460_added productid and customer orderid to junction table.Designer.cs">
+      <DependentUpon>201808022232460_added productid and customer orderid to junction table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808022237596_adding amount to customer table.cs" />
+    <Compile Include="Migrations\201808022237596_adding amount to customer table.Designer.cs">
+      <DependentUpon>201808022237596_adding amount to customer table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Cart.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -250,6 +267,7 @@
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Products.cs" />
     <Compile Include="Models\ProductSize.cs" />
+    <Compile Include="Models\ShoppingCart.cs" />
     <Compile Include="Models\Status.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
@@ -258,6 +276,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="Utils\Extensions.cs" />
     <Compile Include="Utils\IFormFile.cs" />
+    <Compile Include="ViewModels\CartRemoveViewModel.cs" />
     <Compile Include="ViewModels\CartViewModel.cs" />
     <Compile Include="ViewModels\StoreFrontIndexViewModel.cs" />
   </ItemGroup>
@@ -412,10 +431,10 @@
     <Content Include="Views\Employees\Dashboard.cshtml" />
     <Content Include="Views\Upload\UploadFile.cshtml" />
     <Content Include="Views\Products\CreateWorking.cshtml" />
+    <Content Include="Views\ShoppingCart\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\ShoppingCart\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -457,6 +476,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807310127405_added imagle filepath property to product model.resx">
       <DependentUpon>201807310127405_added imagle filepath property to product model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808021512373_adding cart model to db.resx">
+      <DependentUpon>201808021512373_adding cart model to db.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808021733040_adding product id to cart.resx">
+      <DependentUpon>201808021733040_adding product id to cart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808022232460_added productid and customer orderid to junction table.resx">
+      <DependentUpon>201808022232460_added productid and customer orderid to junction table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808022237596_adding amount to customer table.resx">
+      <DependentUpon>201808022237596_adding amount to customer table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

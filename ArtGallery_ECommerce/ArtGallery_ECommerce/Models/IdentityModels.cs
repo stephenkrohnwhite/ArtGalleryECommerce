@@ -29,6 +29,7 @@ namespace ArtGallery_ECommerce.Models
         public DbSet<Address> Address { get; set; }
         public DbSet<Customer> Customer { get; set; }
         public DbSet<Order> Order { get; set; }
+        public DbSet<Cart> Cart { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
