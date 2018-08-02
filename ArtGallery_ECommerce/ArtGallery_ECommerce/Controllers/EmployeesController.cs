@@ -74,7 +74,9 @@ namespace ArtGallery_ECommerce.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                var currentUserId = User.Identity.GetUserId();
+                var currentEmployee = db.Employees.Where(c => c.UserID == currentUserId).First();
+                return View(currentEmployee);
             }
             Employee employee = db.Employees.Find(id);
             if (employee == null)

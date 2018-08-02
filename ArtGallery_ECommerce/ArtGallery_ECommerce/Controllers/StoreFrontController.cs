@@ -15,6 +15,9 @@ namespace ArtGallery_ECommerce.Controllers
         // GET: StoreFront
         public ActionResult Index(int? id)
         {
+            ViewBag.Size = (from r in db.ProductSize
+                            select r.Size).Distinct();
+
             if (id == null)
             {
                 var viewModel = new StoreFrontIndexViewModel()

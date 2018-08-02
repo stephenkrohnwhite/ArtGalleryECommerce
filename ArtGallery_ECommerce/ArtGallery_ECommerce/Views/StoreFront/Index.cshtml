@@ -11,6 +11,8 @@
 
 <div class="row">
     <div class="col-xs-12 col-md-12">
+        <text>Filter By Size</text> @Html.DropDownList("Size", new SelectList(ViewBag.Size))
+        <input type="submit" value="Search" class="btn-primary"/>
         <ul class="nav nav-pills nav-stacked">
 
             @if (Model.Category == null)
