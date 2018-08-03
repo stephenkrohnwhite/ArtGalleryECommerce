@@ -1,17 +1,18 @@
 ﻿
 @{
     ViewBag.Title = "Index";
+    
 }
 
 <h2>Index</h2>
 
-<form action="/Payment/Charge" method="POST">
+<form action="Charge" method="POST">
     <article>
         <label>Amount: $5.00</label>
     </article>
     <script src="//checkout.stripe.com/v2/checkout.js"
             class="stripe-button"
-            data-key="@ViewBag.StripePublishKey"
+            data-key="pk_test_19AURg22luvozWqAuOChS8uC"
             data-locale="auto"
             data-description="Sample Charge"
             data-amount="500">
