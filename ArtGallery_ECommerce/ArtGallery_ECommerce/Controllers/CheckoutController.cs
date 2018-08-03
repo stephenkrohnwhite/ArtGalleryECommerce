@@ -15,7 +15,8 @@ namespace ArtGallery_ECommerce.Controllers
         // GET: Checkout
         public ActionResult Index()
         {
-            var stripePublishKey = ConfigurationManager.AppSettings["stripePublishableKey"];
+            var stripePublishKey = ConfigurationManager.AppSettings["pk_test_19AURg22luvozWqAuOChS8uC"];
+           
             ViewBag.StripePublishKey = stripePublishKey;
             return View();
         }
@@ -37,6 +38,7 @@ namespace ArtGallery_ECommerce.Controllers
                 Currency = "usd",
                 CustomerId = customer.Id
             });
+            // need to add create order helper to build a order using cart/products/customer and save to db
 
             // further application specific code goes here
 
