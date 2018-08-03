@@ -40,9 +40,9 @@ else
                 <td>
                     @item.Product.Price
                 </td>
-                @*<td id="item-count-@item.ProductId">
+                <td id="item-count-@item.ProductId">
                     @item.Count
-                </td>*@
+                </td>
                 <td>
                     @((item.Product.Price * item.Count).ToString("c", us))
                 </td>
@@ -66,10 +66,10 @@ else
     </table>
 
     <p class="button">
-        <a href="~/StoreFront/Index/1">Continue shopping>></a>
+        <a href="~/StoreFront/Index/1">Continue shopping</a>
     </p>
     <p class="button">
-        @Html.ActionLink("Checkout>> ", "AddressAndPayment", "Checkout")
+        @Html.ActionLink("Checkout", "Index", "Checkout")
     </p>
 }
 
