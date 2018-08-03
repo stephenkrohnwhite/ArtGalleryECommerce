@@ -58,5 +58,13 @@ namespace ArtGallery_ECommerce.Controllers
 
             return Json(results);
         }
+        [ChildActionOnly]
+        public ActionResult CartSummary()
+        {
+            var cart = ShoppingCart.GetCart(this.HttpContext);
+
+            ViewData["CartCount"] = cart.GetCount();
+            return PartialView("CartSummary");
+        }
     }
 }
