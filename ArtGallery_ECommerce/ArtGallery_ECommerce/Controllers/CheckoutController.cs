@@ -12,11 +12,16 @@ namespace ArtGallery_ECommerce.Controllers
     public class CheckoutController : Controller
     {
         ApplicationDbContext db = new ApplicationDbContext();
+        private double CartTotal;
+        private int StripeTotal;
         // GET: Checkout
         public ActionResult Index()
         {
             var stripePublishKey = ConfigurationManager.AppSettings["pk_test_19AURg22luvozWqAuOChS8uC"];
-           
+            var cart = ShoppingCart.GetCart(this.HttpContext);
+            CartTotal = cart.GetTotal();
+            StripeTotal = Convert.ToInt32(CartTotal * 100);
+            ViewBag.Total = StripeTotal.ToString();
             ViewBag.StripePublishKey = stripePublishKey;
             return View();
         }
@@ -33,16 +38,26 @@ namespace ArtGallery_ECommerce.Controllers
 
             var charge = charges.Create(new StripeChargeCreateOptions
             {
-                Amount = 500,//charge in cents
+                Amount = StripeTotal,//charge in cents
                 Description = "Sample Charge",
                 Currency = "usd",
                 CustomerId = customer.Id
             });
+            ProcessToDatabase(this.HttpContext);
             // need to add create order helper to build a order using cart/products/customer and save to db
 
             // further application specific code goes here
 
             return View();
+        }
+
+        private void ProcessToDatabase(HttpContextBase context)
+        {
+            var cart = ShoppingCart.GetCart(context);
+            Order order = new Order();
+            order.CartItems = cart.GetCartItems();
+            order.Total = cart.GetTotal();
+            order.Quantity = cart.GetCount();
         }
         //[HttpPost]
         //public ActionResult AddressAndPayment(FormCollection values)

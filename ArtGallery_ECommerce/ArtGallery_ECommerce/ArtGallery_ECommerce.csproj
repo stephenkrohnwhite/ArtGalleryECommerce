@@ -212,6 +212,14 @@
     <Compile Include="Migrations\201808022237596_adding amount to customer table.Designer.cs">
       <DependentUpon>201808022237596_adding amount to customer table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808040102459_change order product list to list of cart for cart items.cs" />
+    <Compile Include="Migrations\201808040102459_change order product list to list of cart for cart items.Designer.cs">
+      <DependentUpon>201808040102459_change order product list to list of cart for cart items.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808040109033_adding double for order total in model.cs" />
+    <Compile Include="Migrations\201808040109033_adding double for order total in model.Designer.cs">
+      <DependentUpon>201808040109033_adding double for order total in model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
@@ -279,6 +287,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="Utils\Extensions.cs" />
     <Compile Include="Utils\IFormFile.cs" />
+    <Compile Include="Utils\PrivateAPIKeys.cs" />
     <Compile Include="ViewModels\CartRemoveViewModel.cs" />
     <Compile Include="ViewModels\CartViewModel.cs" />
     <Compile Include="ViewModels\StoreFrontIndexViewModel.cs" />
@@ -433,6 +442,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808022237596_adding amount to customer table.resx">
       <DependentUpon>201808022237596_adding amount to customer table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808040102459_change order product list to list of cart for cart items.resx">
+      <DependentUpon>201808040102459_change order product list to list of cart for cart items.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808040109033_adding double for order total in model.resx">
+      <DependentUpon>201808040109033_adding double for order total in model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

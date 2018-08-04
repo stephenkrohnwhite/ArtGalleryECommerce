@@ -107,33 +107,6 @@ namespace ArtGallery_ECommerce.Models
             return total ?? 0;
         }
 
-        public int CreateOrder(Customer customerOrder)
-        {
-            double orderTotal = 0;
-
-            var cartItems = GetCartItems();
-
-            foreach (var item in cartItems)
-            {
-                var orderedProduct = new Order
-                {
-                    ProductId = item.ProductId,
-                    Quantity = item.Count
-                };
-
-                orderTotal += (item.Count * item.Product.Price);
-
-                db.Order.Add(orderedProduct);
-            }
-
-            customerOrder.Amount = orderTotal;
-
-            db.SaveChanges();
-
-            EmptyCart();
-
-            return customerOrder.CustomerId;
-        }
 
         public string GetCartId(HttpContextBase context)
         {

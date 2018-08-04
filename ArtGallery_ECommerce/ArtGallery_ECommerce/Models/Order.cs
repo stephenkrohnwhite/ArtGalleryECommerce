@@ -43,7 +43,7 @@ namespace ArtGallery_ECommerce.Models
         [Display(Name = "Order Total")]
         public double Total { get; set; }
 
-
+        
 
     }
 }

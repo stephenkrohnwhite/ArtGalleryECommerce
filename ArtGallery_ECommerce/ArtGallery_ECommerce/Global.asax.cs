@@ -1,4 +1,5 @@
-﻿using Stripe;
+﻿using ArtGallery_ECommerce.Utils;
+using Stripe;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -14,6 +15,8 @@ namespace ArtGallery_ECommerce
     {
         protected void Application_Start()
         {
+            // Need to access apikey from ignored file
+            // PrivateAPIKeys sk = new PrivateAPIKeys();
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
