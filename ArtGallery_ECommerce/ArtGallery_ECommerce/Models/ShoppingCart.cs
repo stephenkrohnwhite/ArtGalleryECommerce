@@ -40,9 +40,9 @@ namespace ArtGallery_ECommerce.Models
                     ProductId = product.ProductId,
                     CartId = ShoppingCartId,
                     Count = 1,
-                    DateCreated = DateTime.Now
+                    DateCreated = DateTime.Now,
                 };
-                db.Cart.Add(cartItem);
+                db.Cart.Add(cartItem); 
             }
             else
             {

@@ -16,19 +16,52 @@ namespace ArtGallery_ECommerce.Controllers
         private int StripeTotal;
         
         // GET: Checkout
-        public ActionResult Index()
+        public ActionResult Index(int? messager)
         {
-            var stripePublishKey = ConfigurationManager.AppSettings["pk_test_19AURg22luvozWqAuOChS8uC"];
-            var cart = ShoppingCart.GetCart(this.HttpContext);
-            CartTotal = cart.GetTotal();
-            StripeTotal = Convert.ToInt32(CartTotal * 100);
-            ViewBag.StripeTotal = StripeTotal.ToString();
-            ViewBag.CashTotal = CartTotal.ToString();
-            ViewBag.StripePublishKey = stripePublishKey;
+            if(messager == null)
+            {
+                var stripePublishKey = ConfigurationManager.AppSettings["pk_test_19AURg22luvozWqAuOChS8uC"];
+                var cart = ShoppingCart.GetCart(this.HttpContext);
+                CartTotal = cart.GetTotal();
+                StripeTotal = Convert.ToInt32(CartTotal * 100);
+                ViewBag.StripeTotal = StripeTotal.ToString();
+                ViewBag.CashTotal = CartTotal.ToString();
+                ViewBag.StripePublishKey = stripePublishKey;
+                return View();
+            }
+            if(messager == 1)
+            {
+                ViewBag.Message = "Some products in your cart are no longer available";
+                return View();
+            }
             return View();
+            
         }
+       
         public ActionResult Charge(string stripeEmail, string stripeToken)
-        {
+        {  
+            try
+            {
+                Order order = ProcessToDatabase(this.HttpContext);
+                {
+                    foreach(var item in order.CartItems)
+                    {
+                        if(item.Product.InStock == false)
+                        {
+                            return RedirectToAction("Index", "Checkout", 1);
+                        }
+                    }
+                }
+                db.Order.Add(order);
+                db.SaveChanges();
+                
+                
+            }
+            catch
+            {
+                throw new Exception();  
+                
+            }
             var customers = new StripeCustomerService();
             var charges = new StripeChargeService();
 
@@ -46,28 +79,22 @@ namespace ArtGallery_ECommerce.Controllers
                 Currency = "usd",
                 CustomerId = customer.Id
             });
-            try
-            {
-                ProcessToDatabase(this.HttpContext);
-            }
-            catch
-            {
-                throw new Exception();
-                
-            }
-            // need to add create order helper to build a order using cart/products/customer and save to db
-
-            // further application specific code goes here
-
             return RedirectToAction("Index", "Home");
         }
 
-        private void ProcessToDatabase(HttpContextBase context)
+        private Order ProcessToDatabase(HttpContextBase context)
         {
             DateTime dt = DateTime.Now;
             var cart = ShoppingCart.GetCart(context);
             Order order = new Order();
             order.CartItems = cart.GetCartItemsNoTrack();
+            foreach(var item in order.CartItems)
+            {
+                if(item.Product.InStock == false)
+                {
+                    ViewBag.Message = string.Format("Item in cart no longer available");
+                }
+            }
             order.Total = cart.GetTotal();
             order.Quantity = cart.GetCount();
             var customer = db.Customer.Where(c => c.Email == cart.ShoppingCartId).First();
@@ -76,56 +103,10 @@ namespace ArtGallery_ECommerce.Controllers
             order.OrderStatus = db.Status.Where(s => s.Name == "Processing").First();
             order.StatusId = order.OrderStatus.StatusId;
             order.OrderTime = dt;
-            db.Order.Add(order);
-            db.SaveChanges();
-
+            cart.EmptyCart();
+            return order;
+            
         }
-        //[HttpPost]
-        //public ActionResult AddressAndPayment(FormCollection values)
-        //{
-        //    var order = new Customer();
 
-        //    TryUpdateModel(order);
-
-        //    try
-        //    {
-
-        //            //order.CustomerUserName = User.Identity.Name;
-        //            //order.DateCreated = DateTime.Now;
-
-        //            //db.CustomerOrders.Add(order);
-        //            //db.SaveChanges();
-
-        //            var cart = ShoppingCart.GetCart(this.HttpContext);
-        //            cart.CreateOrder(order);
-
-        //            db.SaveChanges();//we have received the total amount lets update it
-
-        //            return RedirectToAction("Complete", new { id = order.CustomerId });
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        ex.InnerException.ToString();
-        //        return View(order);
-        //    }
-        //}
-
-        //public ActionResult Complete(int id)
-        //{
-        //    bool isValid = db.CustomerOrders.Any(
-        //        o => o.Id == id &&
-        //             o.CustomerUserName == User.Identity.Name
-        //        );
-
-        //    if (isValid)
-        //    {
-        //        return View(id);
-        //    }
-        //    else
-        //    {
-        //        return View("Error");
-        //    }
-        //}
     }
 }
