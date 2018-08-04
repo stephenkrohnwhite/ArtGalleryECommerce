@@ -1,10 +1,19 @@
 ﻿
 @{
     ViewBag.Title = "Index";
-    
+
 }
 
 <h2>Index</h2>
+@if (ViewBag.Message != null)
+{
+    <div class="container">
+        <div class="col-md-12">
+            <div>@ViewBag.Message</div>
+        </div>
+
+    </div>
+}
 
 <form action="Checkout/Charge" method="POST">
     <article>
