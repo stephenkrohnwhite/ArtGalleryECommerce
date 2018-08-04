@@ -42,7 +42,7 @@ namespace ArtGallery_ECommerce.Models
         [DataType(DataType.Currency)]
         [Display(Name = "Order Total")]
         public double Total { get; set; }
-        
+
         
 
     }
