@@ -10,12 +10,8 @@ namespace ArtGallery_ECommerce.Models
     public class Order
     {
         [Key]
-        [Column(Order = 0)]
-        public int ProductId { get; set; }
-
-        [Key]
-        [Column(Order = 1)]
-        public int CustomerOrderId { get; set; }
+        [Display(Name ="Order ID")]
+        public int OrderId { get; set; }
 
         public int Quantity { get; set; }
         [Display(Name = "Tracking Number")]
@@ -24,6 +20,7 @@ namespace ArtGallery_ECommerce.Models
         public List<Cart> CartItems { get; set; }
 
         [Display(Name = "Order Date")]
+        [DataType(DataType.DateTime)]
         public DateTime OrderTime { get; set; }
 
         [ForeignKey("OrderStatus")]

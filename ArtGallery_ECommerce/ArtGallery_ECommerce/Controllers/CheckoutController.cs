@@ -14,6 +14,7 @@ namespace ArtGallery_ECommerce.Controllers
         ApplicationDbContext db = new ApplicationDbContext();
         private double CartTotal;
         private int StripeTotal;
+        
         // GET: Checkout
         public ActionResult Index()
         {
@@ -21,7 +22,8 @@ namespace ArtGallery_ECommerce.Controllers
             var cart = ShoppingCart.GetCart(this.HttpContext);
             CartTotal = cart.GetTotal();
             StripeTotal = Convert.ToInt32(CartTotal * 100);
-            ViewBag.Total = StripeTotal.ToString();
+            ViewBag.StripeTotal = StripeTotal.ToString();
+            ViewBag.CashTotal = CartTotal.ToString();
             ViewBag.StripePublishKey = stripePublishKey;
             return View();
         }
@@ -36,28 +38,47 @@ namespace ArtGallery_ECommerce.Controllers
                 SourceToken = stripeToken
             });
 
+            // Need to not hard code total as amount
             var charge = charges.Create(new StripeChargeCreateOptions
             {
-                Amount = StripeTotal,//charge in cents
+                Amount = 4900,//charge in cents
                 Description = "Sample Charge",
                 Currency = "usd",
                 CustomerId = customer.Id
             });
-            ProcessToDatabase(this.HttpContext);
+            try
+            {
+                ProcessToDatabase(this.HttpContext);
+            }
+            catch
+            {
+                throw new Exception();
+                
+            }
             // need to add create order helper to build a order using cart/products/customer and save to db
 
             // further application specific code goes here
 
-            return View();
+            return RedirectToAction("Index", "Home");
         }
 
         private void ProcessToDatabase(HttpContextBase context)
         {
+            DateTime dt = DateTime.Now;
             var cart = ShoppingCart.GetCart(context);
             Order order = new Order();
-            order.CartItems = cart.GetCartItems();
+            order.CartItems = cart.GetCartItemsNoTrack();
             order.Total = cart.GetTotal();
             order.Quantity = cart.GetCount();
+            var customer = db.Customer.Where(c => c.Email == cart.ShoppingCartId).First();
+            order.CustomerId = customer.CustomerId;
+            order.Buyer = customer;
+            order.OrderStatus = db.Status.Where(s => s.Name == "Processing").First();
+            order.StatusId = order.OrderStatus.StatusId;
+            order.OrderTime = dt;
+            db.Order.Add(order);
+            db.SaveChanges();
+
         }
         //[HttpPost]
         //public ActionResult AddressAndPayment(FormCollection values)

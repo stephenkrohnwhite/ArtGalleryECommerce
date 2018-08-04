@@ -21,7 +21,7 @@ namespace ArtGallery_ECommerce
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            StripeConfiguration.SetApiKey(ConfigurationManager.AppSettings["sk_test_ZBkSBCi6RvtmMyb2pzL22DgQ"]);
+            StripeConfiguration.SetApiKey(PrivateAPIKeys.StripeAPISK);
         }
     }
 }
