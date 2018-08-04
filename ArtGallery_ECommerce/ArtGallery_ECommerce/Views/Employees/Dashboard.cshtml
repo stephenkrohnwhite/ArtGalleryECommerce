@@ -1,8 +1,10 @@
-﻿@using ArtGallery_ECommerce.Models
+﻿@model ArtGallery_ECommerce.Models.Employee
+
 @{
     ViewBag.Title = "Dashboard";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 
 <div class="jumbotron">
     <div class="text-center">
@@ -12,11 +14,11 @@
 
 <div class="row justify-content-center">
     <div class="btn-group-vertical col-md-4" data-toggle="buttons">
-        <button type="button" class="btn btn-primary btn-lg" onclick="location.href='@Url.Action("Create", "Products")'">Add Products</button>
+        <button type="button" class="btn btn-primary btn-lg" onclick="location.href=@Url.Action("Create", "Products")">Add Products</button>
         <br />
-        <button type="button" class="btn btn-primary btn-lg" onclick="location.href='@Url.Action("Index", "Products")'">Edit Products</button>
+        <button type="button" class="btn btn-primary btn-lg" onclick="location.href=@Url.Action("Index", "Products")">Edit Products</button>
         <br />
-        <button type="button" class="btn btn-primary btn-lg" onclick="location.href='@Url.Action("Index", "Products")'">View Products</button>
+        <button type="button" class="btn btn-primary btn-lg" onclick="location.href=@Url.Action("Index", "Products")">View Products</button>
     </div>
     <div class=" col-md-4">
         <a href="~/StoreFront/Index/1">
@@ -37,56 +39,3 @@
         <button type="button" class="btn btn-primary btn-lg" onclick="location.href='@Url.Action("Edit", "Employees")'">Edit Account</button>
     </div>
 </div>
-
-@*<div class="row justify-content-md-center card-deck mt-3">
-        <div class="card border-primary mb-3 align-items-center" style="max-width: 200px;">
-            <div class="card-header">
-                <a href="~/StoreFront/Index/2"> Add Products</a>
-            </div>
-            <div class="card-body">
-                <img src="~/Content/Images/artNouveauIcon.jpg" width="160" height="190" alt="" />
-            </div>
-        </div>
-        <div class="card border-primary mb-3 align-items-center" style="max-width: 100px;">
-            <div class="card-header">
-                <a href="~/StoreFront/Index/5">View Shipments</a>
-            </div>
-            <div class="card-body">
-                <img src="~/Content/Images/expressionismIcon.jpg" width="160" height="183" alt="" />
-            </div>
-        </div>
-        <div class="card border-primary mb-3 align-items-center" style="max-width: 270px;">
-            <div class="card-header">
-                <a href="~/StoreFront/Index/3">View All Orders</a>
-            </div>
-            <div class="card-body">
-                <img src="~/Content/Images/impressionismIcon.jpg" width="240" height="183" alt="" />
-            </div>
-        </div>
-    </div>*@
-@*<div class="row justify-content-md-center card-deck mt-3">
-        <div class="card border-primary mb-3 align-items-center" style="max-width: 270px;">
-            <div class="card-header">
-                <a href="~/StoreFront/Index/6">Photorealism</a>
-            </div>
-            <div class="card-body">
-                <img src="~/Content/Images/photorealismIcon.jpg" width="220" height="183" alt="" />
-            </div>
-        </div>
-        <div class="card border-primary mb-3 align-items-center" style="max-width: 270px;">
-            <div class="card-header">
-                <a href="~/StoreFront/Index/7">Pop Art</a>
-            </div>
-            <div class="card-body">
-                <img src="~/Content/Images/popArtIcon.png" width="240" height="183" alt="" />
-            </div>
-        </div>
-        <div class="card border-primary mb-3 align-items-center" style="max-width: 270px;">
-            <div class="card-header">
-                <a href="~/StoreFront/Index/4">Realism</a>
-            </div>
-            <div class="card-body">
-                <img src="~/Content/Images/realismIcon.jpeg" width="240" height="183" alt="" />
-            </div>
-        </div>
-    </div>*@

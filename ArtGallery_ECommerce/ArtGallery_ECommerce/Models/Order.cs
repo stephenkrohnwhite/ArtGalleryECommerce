@@ -39,8 +39,6 @@ namespace ArtGallery_ECommerce.Models
 
         [Display(Name = "Customer")]
         public Customer Buyer { get; set; }
-        
-        
 
     }
 }
