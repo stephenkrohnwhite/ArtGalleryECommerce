@@ -35,7 +35,7 @@
             @Html.DisplayFor(modelItem => item.OrderTime)
         </td>
         <td>
-            @item.Buyer.FirstName + " " + @item.Buyer.LastName
+            @(item.Buyer.FirstName + " " + item.Buyer.LastName)
         </td>
         <td>
             @item.OrderStatus.Name
@@ -50,9 +50,9 @@
         <td>
             @if (User.IsInRole("Employee"))
             {
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) 
+                @Html.ActionLink("Edit", "Edit", new { id=item.OrderId }) 
             }
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) 
+            @Html.ActionLink("Details", "Details", new { id = item.OrderId }) 
         </td>
     </tr>
 }
