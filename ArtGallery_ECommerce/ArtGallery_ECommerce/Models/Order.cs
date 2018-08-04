@@ -13,6 +13,8 @@ namespace ArtGallery_ECommerce.Models
         [Display(Name ="Order ID")]
         public int OrderId { get; set; }
 
+        public string PublicOrderNum { get; set; }
+
         public int Quantity { get; set; }
         [Display(Name = "Tracking Number")]
         public string TrackingId { get; set; }
