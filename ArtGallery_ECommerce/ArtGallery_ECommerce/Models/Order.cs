@@ -21,7 +21,7 @@ namespace ArtGallery_ECommerce.Models
         [Display(Name = "Tracking Number")]
         public string TrackingId { get; set; }
 
-        public IEnumerable<Products> Purchase { get; set; }
+        public List<Cart> CartItems { get; set; }
 
         [Display(Name = "Order Date")]
         public DateTime OrderTime { get; set; }
@@ -39,6 +39,11 @@ namespace ArtGallery_ECommerce.Models
 
         [Display(Name = "Customer")]
         public Customer Buyer { get; set; }
+        [DataType(DataType.Currency)]
+        [Display(Name = "Order Total")]
+        public double Total { get; set; }
+
+
 
     }
 }
