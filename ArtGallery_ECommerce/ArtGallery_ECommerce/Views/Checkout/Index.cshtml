@@ -6,15 +6,15 @@
 
 <h2>Index</h2>
 
-<form action="Charge" method="POST">
+<form action="Checkout/Charge" method="POST">
     <article>
-        <label>Amount: $5.00</label>
+        <label>Amount: $@ViewBag.Total</label>
     </article>
     <script src="//checkout.stripe.com/v2/checkout.js"
             class="stripe-button"
             data-key="pk_test_19AURg22luvozWqAuOChS8uC"
             data-locale="auto"
             data-description="Sample Charge"
-            data-amount="500">
+            data-amount=@ViewBag.Total>
     </script>
 </form>
