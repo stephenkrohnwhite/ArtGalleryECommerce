@@ -8,13 +8,13 @@
 
 <form action="Checkout/Charge" method="POST">
     <article>
-        <label>Amount: $@ViewBag.Total</label>
+        <label>Amount: $@ViewBag.CashTotal</label>
     </article>
     <script src="//checkout.stripe.com/v2/checkout.js"
             class="stripe-button"
             data-key="pk_test_19AURg22luvozWqAuOChS8uC"
             data-locale="auto"
             data-description="Sample Charge"
-            data-amount=@ViewBag.Total>
+            data-amount=@ViewBag.StripeTotal>
     </script>
 </form>

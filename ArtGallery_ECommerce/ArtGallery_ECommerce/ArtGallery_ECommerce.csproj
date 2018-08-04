@@ -219,6 +219,14 @@
     <Compile Include="Migrations\201808040109033_adding double for order total in model.Designer.cs">
       <DependentUpon>201808040109033_adding double for order total in model.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808041432247_removing two PKs from order column and adding an orderID for PK.cs" />
+    <Compile Include="Migrations\201808041432247_removing two PKs from order column and adding an orderID for PK.Designer.cs">
+      <DependentUpon>201808041432247_removing two PKs from order column and adding an orderID for PK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808041506333_test.cs" />
+    <Compile Include="Migrations\201808041506333_test.Designer.cs">
+      <DependentUpon>201808041506333_test.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
@@ -442,6 +450,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808040109033_adding double for order total in model.resx">
       <DependentUpon>201808040109033_adding double for order total in model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808041432247_removing two PKs from order column and adding an orderID for PK.resx">
+      <DependentUpon>201808041432247_removing two PKs from order column and adding an orderID for PK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808041506333_test.resx">
+      <DependentUpon>201808041506333_test.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

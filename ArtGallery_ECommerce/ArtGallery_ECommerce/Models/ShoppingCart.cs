@@ -23,6 +23,7 @@ namespace ArtGallery_ECommerce.Models
             return cart;
         }
 
+
         public static ShoppingCart GetCart(Controller controller)
         {
             return GetCart(controller.HttpContext);
@@ -88,6 +89,10 @@ namespace ArtGallery_ECommerce.Models
         public List<Cart> GetCartItems()
         {
             return db.Cart.Where(cart => cart.CartId == ShoppingCartId).ToList();
+        }
+        public List<Cart> GetCartItemsNoTrack()
+        {
+            return db.Cart.AsNoTracking().Where(cart => cart.CartId == ShoppingCartId).ToList();
         }
 
         public int GetCount()

@@ -5,9 +5,15 @@ using System.Web;
 
 namespace ArtGallery_ECommerce.Utils
 {
-    public class PrivateAPIKeys
+    public static class PrivateAPIKeys
     {
-        public string StripeAPISK = "sk_test_ZBkSBCi6RvtmMyb2pzL22DgQ";
-        
+        private static string stripeAPISK = "sk_test_ZBkSBCi6RvtmMyb2pzL22DgQ";
+        public static string StripeAPISK
+        {
+            get
+            {
+                return stripeAPISK;
+            }
+        }
     }
 }
