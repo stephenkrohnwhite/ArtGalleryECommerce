@@ -39,11 +39,16 @@ namespace ArtGallery_ECommerce.Migrations
             //    new Categories { Name = "Photorealism" },
             //    new Categories { Name = "Pop Art" }
             //    );
-            context.ProductSize.AddOrUpdate(
-                p => p.Size,
-                new ProductSize { Size = "12\" x 16\"" },
-                new ProductSize { Size = "24\" x 36\"" },
-                new ProductSize { Size = "36\" x 48\"" }
+            //context.ProductSize.AddOrUpdate(
+            //    p => p.Size,
+            //    new ProductSize { Size = "12\" x 16\"" },
+            //    new ProductSize { Size = "24\" x 36\"" },
+            //    new ProductSize { Size = "36\" x 48\"" }
+            //    );
+            context.Status.AddOrUpdate(
+                s => s.Name,
+                new Status { Name = "Processing" },
+                new Status { Name = "Complete" }
                 );
         }
     }
