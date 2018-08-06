@@ -228,9 +228,9 @@
     <Compile Include="Migrations\201808041506333_test.Designer.cs">
       <DependentUpon>201808041506333_test.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808041744369_adding to order model.cs" />
-    <Compile Include="Migrations\201808041744369_adding to order model.Designer.cs">
-      <DependentUpon>201808041744369_adding to order model.cs</DependentUpon>
+    <Compile Include="Migrations\201808041826296_adding migration for order model.cs" />
+    <Compile Include="Migrations\201808041826296_adding migration for order model.Designer.cs">
+      <DependentUpon>201808041826296_adding migration for order model.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
@@ -467,8 +467,8 @@
     <EmbeddedResource Include="Migrations\201808041506333_test.resx">
       <DependentUpon>201808041506333_test.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808041744369_adding to order model.resx">
-      <DependentUpon>201808041744369_adding to order model.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808041826296_adding migration for order model.resx">
+      <DependentUpon>201808041826296_adding migration for order model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

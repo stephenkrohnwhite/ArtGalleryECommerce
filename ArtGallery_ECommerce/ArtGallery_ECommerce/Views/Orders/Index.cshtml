@@ -13,15 +13,19 @@
             @Html.DisplayNameFor(model => model.OrderTime)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PublicOrderNum)
-        </th>
-        <th>
             Name
         </th>
         <th>
             Order Status
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TrackingId)
+        </th>
 
+        <th></th>
     </tr>
 
 @foreach (var item in Model)
@@ -31,19 +35,22 @@
             @Html.DisplayFor(modelItem => item.OrderTime)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.PublicOrderNum)
-        </td>
-        <td>
-            @item.Buyer.FirstName + " " + @item.Buyer.LastName
+            @(item.Buyer.FirstName + " " + item.Buyer.LastName)
         </td>
         <td>
             @item.OrderStatus.Name
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TrackingId)
         </td>
 
         <td>
             @if (User.IsInRole("Employee"))
             {
-                @Html.ActionLink("Edit", "Edit", new { id = item.OrderId }) 
+                @Html.ActionLink("Edit", "Edit", new { id=item.OrderId }) 
             }
             @Html.ActionLink("Details", "Details", new { id = item.OrderId }) 
         </td>
