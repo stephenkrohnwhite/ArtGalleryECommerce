@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ArtGallery_ECommerce.Models;
+using ArtGallery_ECommerce.ViewModels;
 using Microsoft.AspNet.Identity;
 
 namespace ArtGallery_ECommerce.Controllers
@@ -25,16 +26,32 @@ namespace ArtGallery_ECommerce.Controllers
         // GET: Customers/Details/5
         public ActionResult Details(int? id)
         {
+            Customer customer = null;
+            Address currentAddress = null;
+
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                var userId = User.Identity.GetUserId();
+                customer = db.Customer.Where(c => c.UserID == userId).First();
+                currentAddress = db.Address.Where(c => c.AddressId == customer.AddressId).First();
             }
-            Customer customer = db.Customer.Find(id);
-            if (customer == null)
+            if (id != null)
             {
-                return HttpNotFound();
+                customer = db.Customer.Find(id);
+                currentAddress = db.Address.Where(c => c.AddressId == customer.AddressId).First();
             }
-            return View(customer);
+
+  
+            var viewModel = new CustomerDetailViewModel()
+            {
+                CustomerId = customer.CustomerId,
+                Name = customer.FirstName + " " + customer.LastName,
+                Email = customer.Email,
+                StreetAddress = currentAddress.SteetAddress,
+                CityStateZip = currentAddress.City + ", " + currentAddress.State + " " + currentAddress.ZipCode,
+                PhoneNumber = customer.Phone
+            };
+            return View(viewModel);
         }
 
         // GET: Customers/Create

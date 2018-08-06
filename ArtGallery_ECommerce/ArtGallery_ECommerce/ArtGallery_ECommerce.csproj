@@ -302,6 +302,7 @@
     <Compile Include="Utils\PrivateAPIKeys.cs" />
     <Compile Include="ViewModels\CartRemoveViewModel.cs" />
     <Compile Include="ViewModels\CartViewModel.cs" />
+    <Compile Include="ViewModels\CustomerDetailViewModel.cs" />
     <Compile Include="ViewModels\StoreFrontIndexViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -398,6 +399,7 @@
     <Content Include="Views\Orders\Details.cshtml" />
     <Content Include="Views\Orders\Edit.cshtml" />
     <Content Include="Views\Orders\Index.cshtml" />
+    <Content Include="Views\Orders\PickList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

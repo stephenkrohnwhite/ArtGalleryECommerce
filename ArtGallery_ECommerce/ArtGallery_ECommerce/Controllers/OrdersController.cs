@@ -37,6 +37,12 @@ namespace ArtGallery_ECommerce.Controllers
             }
         }
 
+        public ActionResult PickList()
+        {
+            var pickList = db.Order.Where(c => c.OrderStatus.Name == "Processing").Include(o => o.OrderStatus).ToList();
+            return View("PickList", pickList);
+        }
+
         // GET: Orders/Details/5
         public ActionResult Details(int? id)
         {

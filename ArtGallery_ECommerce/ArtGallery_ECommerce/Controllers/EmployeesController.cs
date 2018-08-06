@@ -31,7 +31,9 @@ namespace ArtGallery_ECommerce.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                var userId = User.Identity.GetUserId();
+                Employee currentEmployee = db.Employees.Where(c => c.UserID == userId).First();
+                return View(currentEmployee);
             }
             Employee employee = db.Employees.Find(id);
             if (employee == null)
@@ -91,15 +93,19 @@ namespace ArtGallery_ECommerce.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EmployeeID,UserID,FirstName,LastName")] Employee employee)
+        public ActionResult Edit([Bind(Include = "EmployeeID,UserID,FirstName,LastName")] Employee editedEmployee)
         {
             if (ModelState.IsValid)
             {
+                var currentUser = User.Identity.GetUserId();
+                Employee employee = db.Employees.Where(c => c.UserID == currentUser).First();
+                employee.FirstName = editedEmployee.FirstName;
+                employee.LastName = editedEmployee.LastName;
                 db.Entry(employee).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details");
             }
-            return View(employee);
+            return View(editedEmployee);
         }
 
         // GET: Employees/Delete/5
