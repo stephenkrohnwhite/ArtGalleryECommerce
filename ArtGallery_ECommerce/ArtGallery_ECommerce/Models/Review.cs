@@ -16,6 +16,9 @@ namespace ArtGallery_ECommerce.Models
         public int ProductId { get; set; }
         public Products ProductRef { get; set; }
 
+        [Display(Name = "Painting Name")]
+        public string ProductName { get; set; }
+
         [Display(Name = "Date")]
         public DateTime ReviewDate { get; set; }
 
