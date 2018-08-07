@@ -10,60 +10,64 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Size.Size)
-        </th>
-        
-        <th>
-            @Html.DisplayNameFor(model => model.Artist)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.InStock)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FileImagePath)
-        </th>
-    </tr>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Size.Size)
+                </th>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Category.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Size.Size)
-        </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.Artist)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.InStock)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                
+            </tr>
 
-        <td>
-            @Html.DisplayFor(modelItem => item.Artist)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.InStock)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Size.Size)
+                    </td>
 
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProductId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProductId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProductId })
-        </td>
-    </tr>
-}
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Artist)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.InStock)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    
 
-</table>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ProductId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ProductId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ProductId })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>

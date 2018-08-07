@@ -29,8 +29,9 @@ namespace ArtGallery_ECommerce.Models
             return GetCart(controller.HttpContext);
         }
 
-        public void AddToCart(Products product)
+        public void AddToCart(int productId)
         {
+            var product = db.Products.Where(p => p.ProductId == productId).First();
             var cartItem = db.Cart.SingleOrDefault(c => c.CartId == ShoppingCartId && c.ProductId == product.ProductId);
 
             if (cartItem == null)
@@ -38,9 +39,11 @@ namespace ArtGallery_ECommerce.Models
                 cartItem = new Cart
                 {
                     ProductId = product.ProductId,
+                    Product = product,
                     CartId = ShoppingCartId,
                     Count = 1,
                     DateCreated = DateTime.Now,
+
                 };
                 db.Cart.Add(cartItem); 
             }
@@ -105,11 +108,18 @@ namespace ArtGallery_ECommerce.Models
 
         public double GetTotal()
         {
-            double? total = (from cartItems in db.Cart
-                              where cartItems.CartId == ShoppingCartId
-                              select (int?)cartItems.Count * cartItems.Product.Price).Sum();
+            var carts = db.Cart.Where(c => ShoppingCartId == c.CartId).ToList();
+            double total = 0;
+            foreach(var cart in carts)
+            {
+                var product = db.Products.Where(p => p.ProductId == cart.ProductId).First();
+                total += product.Price;
+            }
+            //double? total = (from cartItems in db.Cart
+            //                  where cartItems.CartId == ShoppingCartId
+            //                  select (int?)cartItems.Count * product.Product.Price).Sum();
 
-            return total ?? 0;
+            return total;
         }
 
 

@@ -1,17 +1,16 @@
 namespace ArtGallery_ECommerce.Migrations
 {
+    using ArtGallery_ECommerce.Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
-    using ArtGallery_ECommerce.Models;
 
     internal sealed class Configuration : DbMigrationsConfiguration<ArtGallery_ECommerce.Models.ApplicationDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "ArtGallery_ECommerce.Models.ApplicationDbContext";
         }
 
         protected override void Seed(ArtGallery_ECommerce.Models.ApplicationDbContext context)
@@ -28,7 +27,6 @@ namespace ArtGallery_ECommerce.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-
             //context.Categories.AddOrUpdate(
             //    p => p.Name,
             //    new Categories { Name = "Abstract" },
@@ -44,12 +42,12 @@ namespace ArtGallery_ECommerce.Migrations
             //    new ProductSize { Size = "12\" x 16\"" },
             //    new ProductSize { Size = "24\" x 36\"" },
             //    new ProductSize { Size = "36\" x 48\"" }
+            //);
+            //context.Status.AddOrUpdate(
+            //    s => s.Name,
+            //    new Status { Name = "Processing" },
+            //    new Status { Name = "Complete" }
             //    );
-            context.Status.AddOrUpdate(
-                s => s.Name,
-                new Status { Name = "Processing" },
-                new Status { Name = "Complete" }
-                );
         }
     }
 }

@@ -19,8 +19,6 @@ namespace ArtGallery_ECommerce.Models
         [Display(Name = "Tracking Number")]
         public string TrackingId { get; set; }
 
-        public List<Cart> CartItems { get; set; }
-
         [Display(Name = "Order Date")]
         [DataType(DataType.DateTime)]
         public DateTime OrderTime { get; set; }

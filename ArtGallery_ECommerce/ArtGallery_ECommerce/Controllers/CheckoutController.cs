@@ -35,6 +35,11 @@ namespace ArtGallery_ECommerce.Controllers
                 ViewBag.Message = "Some products in your cart are no longer available";
                 return View();
             }
+            if (messager == 2)
+            {
+                ViewBag.Message = "Order could not be processed";
+                return View();
+            }
             return View();
             
         }
@@ -43,25 +48,48 @@ namespace ArtGallery_ECommerce.Controllers
         {  
             try
             {
-                Order order = ProcessToDatabase(this.HttpContext);
+                var order = ProcessToDatabase(this.HttpContext);
+                var cart = ShoppingCart.GetCart(this.HttpContext);
+                var cartProduct = cart.GetCartItems();
+                foreach (var item in cartProduct)
                 {
-                    foreach(var item in order.CartItems)
+                    Products product = db.Products.Where(p => p.ProductId == item.ProductId).First();
+                    if(product.InStock == false)
                     {
-                        if(item.Product.InStock == false)
-                        {
-                            return RedirectToAction("Index", "Checkout", 1);
-                        }
+                        return RedirectToAction("Index", "Checkout", 1);
                     }
                 }
                 db.Order.Add(order);
                 db.SaveChanges();
+                
+                
+                foreach(var item in cartProduct)
+                {
+                    OrderItem oi = new OrderItem();
+                    oi.OrderId = order.OrderId;
+                    oi.Order = order;
+                    oi.ProductId = item.ProductId;
+                    oi.Product = item.Product;
+                    db.OrderItems.Add(oi);
+                    db.SaveChanges();
+                }
                 order.PublicOrderNum = GetRandomizedString(order.OrderId);
                 db.SaveChanges();
+                var orderList = db.OrderItems.Where(o => o.OrderId == order.OrderId).ToList();
+                foreach(var item in orderList)
+                {
+                    Products product = db.Products.Where(p => p.ProductId == item.ProductId).First();
+                    product.InStock = false;
+                    db.SaveChanges();
+                }
+                
+                cart.EmptyCart();
             }
             catch
             {
-                throw new Exception();  
-                
+                return RedirectToAction("Index", "Checkout", 2);
+
+
             }
             var customers = new StripeCustomerService();
             var charges = new StripeChargeService();
@@ -88,14 +116,6 @@ namespace ArtGallery_ECommerce.Controllers
             DateTime dt = DateTime.Now;
             var cart = ShoppingCart.GetCart(context);
             Order order = new Order();
-            order.CartItems = cart.GetCartItemsNoTrack();
-            foreach(var item in order.CartItems)
-            {
-                if(item.Product.InStock == false)
-                {
-                    ViewBag.Message = string.Format("Item in cart no longer available");
-                }
-            }
             order.Total = cart.GetTotal();
             order.Quantity = cart.GetCount();
             var customer = db.Customer.Where(c => c.Email == cart.ShoppingCartId).First();
@@ -104,7 +124,6 @@ namespace ArtGallery_ECommerce.Controllers
             order.OrderStatus = db.Status.Where(s => s.Name == "Processing").First();
             order.StatusId = order.OrderStatus.StatusId;
             order.OrderTime = dt;
-            cart.EmptyCart();
             return order;
             
         }

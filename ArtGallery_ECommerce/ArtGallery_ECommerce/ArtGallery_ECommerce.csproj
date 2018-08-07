@@ -196,42 +196,47 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CheckoutController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
-    <Compile Include="Migrations\201808021512373_adding cart model to db.cs" />
-    <Compile Include="Migrations\201808021512373_adding cart model to db.Designer.cs">
-      <DependentUpon>201808021512373_adding cart model to db.cs</DependentUpon>
+    <Compile Include="Migrations\201808061647573_readding all models.cs" />
+    <Compile Include="Migrations\201808061647573_readding all models.Designer.cs">
+      <DependentUpon>201808061647573_readding all models.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808021733040_adding product id to cart.cs" />
-    <Compile Include="Migrations\201808021733040_adding product id to cart.Designer.cs">
-      <DependentUpon>201808021733040_adding product id to cart.cs</DependentUpon>
+    <Compile Include="Migrations\201808061650379_dropping list cartitems in order table.cs" />
+    <Compile Include="Migrations\201808061650379_dropping list cartitems in order table.Designer.cs">
+      <DependentUpon>201808061650379_dropping list cartitems in order table.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808022232460_added productid and customer orderid to junction table.cs" />
-    <Compile Include="Migrations\201808022232460_added productid and customer orderid to junction table.Designer.cs">
-      <DependentUpon>201808022232460_added productid and customer orderid to junction table.cs</DependentUpon>
+    <Compile Include="Migrations\201808062330424_adding migrated cart to orderitem table.cs" />
+    <Compile Include="Migrations\201808062330424_adding migrated cart to orderitem table.Designer.cs">
+      <DependentUpon>201808062330424_adding migrated cart to orderitem table.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808022237596_adding amount to customer table.cs" />
-    <Compile Include="Migrations\201808022237596_adding amount to customer table.Designer.cs">
-      <DependentUpon>201808022237596_adding amount to customer table.cs</DependentUpon>
+    <Compile Include="Migrations\201808062332509_test.cs" />
+    <Compile Include="Migrations\201808062332509_test.Designer.cs">
+      <DependentUpon>201808062332509_test.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808040102459_change order product list to list of cart for cart items.cs" />
-    <Compile Include="Migrations\201808040102459_change order product list to list of cart for cart items.Designer.cs">
-      <DependentUpon>201808040102459_change order product list to list of cart for cart items.cs</DependentUpon>
+    <Compile Include="Migrations\201808062333597_adding orderitem model to migrate from cart.cs" />
+    <Compile Include="Migrations\201808062333597_adding orderitem model to migrate from cart.Designer.cs">
+      <DependentUpon>201808062333597_adding orderitem model to migrate from cart.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808040109033_adding double for order total in model.cs" />
-    <Compile Include="Migrations\201808040109033_adding double for order total in model.Designer.cs">
-      <DependentUpon>201808040109033_adding double for order total in model.cs</DependentUpon>
+    <Compile Include="Migrations\201808062345311_removing fk pointer in order model.cs" />
+    <Compile Include="Migrations\201808062345311_removing fk pointer in order model.Designer.cs">
+      <DependentUpon>201808062345311_removing fk pointer in order model.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808041432247_removing two PKs from order column and adding an orderID for PK.cs" />
-    <Compile Include="Migrations\201808041432247_removing two PKs from order column and adding an orderID for PK.Designer.cs">
-      <DependentUpon>201808041432247_removing two PKs from order column and adding an orderID for PK.cs</DependentUpon>
+    <Compile Include="Migrations\201808070001451_checkin to see if virtual is creating extra db products.cs" />
+    <Compile Include="Migrations\201808070001451_checkin to see if virtual is creating extra db products.Designer.cs">
+      <DependentUpon>201808070001451_checkin to see if virtual is creating extra db products.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808041506333_test.cs" />
-    <Compile Include="Migrations\201808041506333_test.Designer.cs">
-      <DependentUpon>201808041506333_test.cs</DependentUpon>
+    <Compile Include="Migrations\201808070004408_testing setting product as FK in cart.cs" />
+    <Compile Include="Migrations\201808070004408_testing setting product as FK in cart.Designer.cs">
+      <DependentUpon>201808070004408_testing setting product as FK in cart.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808041826296_adding migration for order model.cs" />
-    <Compile Include="Migrations\201808041826296_adding migration for order model.Designer.cs">
-      <DependentUpon>201808041826296_adding migration for order model.cs</DependentUpon>
+    <Compile Include="Migrations\201808070020112_testing.cs" />
+    <Compile Include="Migrations\201808070020112_testing.Designer.cs">
+      <DependentUpon>201808070020112_testing.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808070039393_testing1.cs" />
+    <Compile Include="Migrations\201808070039393_testing1.Designer.cs">
+      <DependentUpon>201808070039393_testing1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
@@ -244,43 +249,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807262348448_InitialCreate.cs" />
-    <Compile Include="Migrations\201807262348448_InitialCreate.Designer.cs">
-      <DependentUpon>201807262348448_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807270015400_added user role string to identity model.cs" />
-    <Compile Include="Migrations\201807270015400_added user role string to identity model.Designer.cs">
-      <DependentUpon>201807270015400_added user role string to identity model.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807270409352_adding employee and product side tables.cs" />
-    <Compile Include="Migrations\201807270409352_adding employee and product side tables.Designer.cs">
-      <DependentUpon>201807270409352_adding employee and product side tables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807270424513_adding product and employee models.cs" />
-    <Compile Include="Migrations\201807270424513_adding product and employee models.Designer.cs">
-      <DependentUpon>201807270424513_adding product and employee models.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807271306591_adding customer and order tables.cs" />
-    <Compile Include="Migrations\201807271306591_adding customer and order tables.Designer.cs">
-      <DependentUpon>201807271306591_adding customer and order tables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807271413216_removing region and country fields in address.cs" />
-    <Compile Include="Migrations\201807271413216_removing region and country fields in address.Designer.cs">
-      <DependentUpon>201807271413216_removing region and country fields in address.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807280418277_fixed spelling error in createrolls%28%29.cs" />
-    <Compile Include="Migrations\201807280418277_fixed spelling error in createrolls%28%29.Designer.cs">
-      <DependentUpon>201807280418277_fixed spelling error in createrolls%28%29.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807280459503_seeding categories.cs" />
-    <Compile Include="Migrations\201807280459503_seeding categories.Designer.cs">
-      <DependentUpon>201807280459503_seeding categories.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807310127405_added imagle filepath property to product model.cs" />
-    <Compile Include="Migrations\201807310127405_added imagle filepath property to product model.Designer.cs">
-      <DependentUpon>201807310127405_added imagle filepath property to product model.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Categories.cs" />
@@ -291,6 +259,7 @@
     <Compile Include="Models\ImageViewModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\Products.cs" />
     <Compile Include="Models\ProductSize.cs" />
     <Compile Include="Models\ShoppingCart.cs" />
@@ -416,59 +385,35 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201807262348448_InitialCreate.resx">
-      <DependentUpon>201807262348448_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808061647573_readding all models.resx">
+      <DependentUpon>201808061647573_readding all models.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807270015400_added user role string to identity model.resx">
-      <DependentUpon>201807270015400_added user role string to identity model.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808061650379_dropping list cartitems in order table.resx">
+      <DependentUpon>201808061650379_dropping list cartitems in order table.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807270409352_adding employee and product side tables.resx">
-      <DependentUpon>201807270409352_adding employee and product side tables.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808062330424_adding migrated cart to orderitem table.resx">
+      <DependentUpon>201808062330424_adding migrated cart to orderitem table.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807270424513_adding product and employee models.resx">
-      <DependentUpon>201807270424513_adding product and employee models.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808062332509_test.resx">
+      <DependentUpon>201808062332509_test.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807271306591_adding customer and order tables.resx">
-      <DependentUpon>201807271306591_adding customer and order tables.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808062333597_adding orderitem model to migrate from cart.resx">
+      <DependentUpon>201808062333597_adding orderitem model to migrate from cart.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807271413216_removing region and country fields in address.resx">
-      <DependentUpon>201807271413216_removing region and country fields in address.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808062345311_removing fk pointer in order model.resx">
+      <DependentUpon>201808062345311_removing fk pointer in order model.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807280418277_fixed spelling error in createrolls%28%29.resx">
-      <DependentUpon>201807280418277_fixed spelling error in createrolls%28%29.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808070001451_checkin to see if virtual is creating extra db products.resx">
+      <DependentUpon>201808070001451_checkin to see if virtual is creating extra db products.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807280459503_seeding categories.resx">
-      <DependentUpon>201807280459503_seeding categories.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808070004408_testing setting product as FK in cart.resx">
+      <DependentUpon>201808070004408_testing setting product as FK in cart.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807310127405_added imagle filepath property to product model.resx">
-      <DependentUpon>201807310127405_added imagle filepath property to product model.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808070020112_testing.resx">
+      <DependentUpon>201808070020112_testing.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808021512373_adding cart model to db.resx">
-      <DependentUpon>201808021512373_adding cart model to db.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808021733040_adding product id to cart.resx">
-      <DependentUpon>201808021733040_adding product id to cart.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808022232460_added productid and customer orderid to junction table.resx">
-      <DependentUpon>201808022232460_added productid and customer orderid to junction table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808022237596_adding amount to customer table.resx">
-      <DependentUpon>201808022237596_adding amount to customer table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808040102459_change order product list to list of cart for cart items.resx">
-      <DependentUpon>201808040102459_change order product list to list of cart for cart items.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808040109033_adding double for order total in model.resx">
-      <DependentUpon>201808040109033_adding double for order total in model.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808041432247_removing two PKs from order column and adding an orderID for PK.resx">
-      <DependentUpon>201808041432247_removing two PKs from order column and adding an orderID for PK.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808041506333_test.resx">
-      <DependentUpon>201808041506333_test.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808041826296_adding migration for order model.resx">
-      <DependentUpon>201808041826296_adding migration for order model.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808070039393_testing1.resx">
+      <DependentUpon>201808070039393_testing1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

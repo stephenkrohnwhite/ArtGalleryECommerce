@@ -23,7 +23,8 @@ namespace ArtGallery_ECommerce.Controllers
                 CartTotal = cart.GetTotal()
                 //Use Lock to prevent multiple purchase of same item
             };
-
+            
+            
             return View(viewModel);
         }
 
@@ -33,7 +34,7 @@ namespace ArtGallery_ECommerce.Controllers
 
             var cart = ShoppingCart.GetCart(this.HttpContext);
 
-            cart.AddToCart(addedProduct);
+            cart.AddToCart(addedProduct.ProductId);
 
             return RedirectToAction("Index");
         }
@@ -43,13 +44,13 @@ namespace ArtGallery_ECommerce.Controllers
         {
             var cart = ShoppingCart.GetCart(this.HttpContext);
 
-            string productName = db.Cart.FirstOrDefault(item => item.ProductId == id).Product.Name;
-
+            var cartitem = db.Cart.FirstOrDefault(item => item.ProductId == id);
+            var productName = db.Products.Where(p => cartitem.ProductId == p.ProductId).First(); 
             int itemCount = cart.RemoveFromCart(id);
 
             var results = new CartRemoveViewModel
             {
-                Message = Server.HtmlEncode(productName) + " has been removed from your shopping cart",
+                Message = Server.HtmlEncode(productName.Name) + " has been removed from your shopping cart",
                 CartTotal = cart.GetTotal(),
                 CartCount = cart.GetCount(),
                 ItemCount = itemCount,

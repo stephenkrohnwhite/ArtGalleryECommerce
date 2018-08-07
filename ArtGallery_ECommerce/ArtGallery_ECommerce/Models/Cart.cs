@@ -15,14 +15,16 @@ namespace ArtGallery_ECommerce.Models
             public int Id { get; set; }
 
             public string CartId { get; set; }
-
+            [ForeignKey("Product")]
             public int ProductId { get; set; }
+            public Products Product { get; set; }
+           
             public int Count { get; set; }
 
             [Column(TypeName = "datetime2")]
             public DateTime DateCreated { get; set; }
 
-            public virtual Products Product { get; set; }
-        
+            
+            
     }
 }
