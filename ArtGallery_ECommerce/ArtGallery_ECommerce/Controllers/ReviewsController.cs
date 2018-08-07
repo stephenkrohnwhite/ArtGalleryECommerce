@@ -39,7 +39,7 @@ namespace ArtGallery_ECommerce.Controllers
         // GET: Reviews/Create
         public ActionResult Create(Products item)
         {
-            ViewBag.ProductId = new SelectList(db.Products, "ProductId", "Name");
+            ViewBag.ProductName = new SelectList(db.Products, "ProductName", "Name");
             return View();
         }
 
