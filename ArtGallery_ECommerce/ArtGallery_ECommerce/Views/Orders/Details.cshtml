@@ -82,8 +82,7 @@
                     </p>
                     <p>
                         <b>Price:</b> <span>@item.Price USD</span>
-                    </p>
-                   
+                    </p>                   
                 </div>
             </div>
         </div>
@@ -91,6 +90,7 @@
     </table>
 </div>
 <p>
+    @Html.ActionLink("Leave A Review", "Create", "Reviews", ) |
     @Html.ActionLink("Edit", "Edit", new { id = Model.OrderId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

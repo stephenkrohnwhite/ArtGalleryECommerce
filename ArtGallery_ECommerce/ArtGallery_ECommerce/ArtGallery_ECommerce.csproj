@@ -208,9 +208,18 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CheckoutController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="Controllers\ReviewsController.cs" />
     <Compile Include="Migrations\201808071728145_InitialMigration.cs" />
     <Compile Include="Migrations\201808071728145_InitialMigration.Designer.cs">
       <DependentUpon>201808071728145_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808071845041_Adding Review Model.cs" />
+    <Compile Include="Migrations\201808071845041_Adding Review Model.Designer.cs">
+      <DependentUpon>201808071845041_Adding Review Model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808072013524_updating review model.cs" />
+    <Compile Include="Migrations\201808072013524_updating review model.Designer.cs">
+      <DependentUpon>201808072013524_updating review model.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -238,6 +247,7 @@
     <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\Products.cs" />
     <Compile Include="Models\ProductSize.cs" />
+    <Compile Include="Models\Review.cs" />
     <Compile Include="Models\ShoppingCart.cs" />
     <Compile Include="Models\Status.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -346,6 +356,11 @@
     <Content Include="Views\Orders\PickList.cshtml" />
     <Content Include="Views\Orders\Details.cshtml" />
     <Content Include="Views\Orders\Edit.cshtml" />
+    <Content Include="Views\Reviews\Create.cshtml" />
+    <Content Include="Views\Reviews\Delete.cshtml" />
+    <Content Include="Views\Reviews\Details.cshtml" />
+    <Content Include="Views\Reviews\Edit.cshtml" />
+    <Content Include="Views\Reviews\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -366,6 +381,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201808071728145_InitialMigration.resx">
       <DependentUpon>201808071728145_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808071845041_Adding Review Model.resx">
+      <DependentUpon>201808071845041_Adding Review Model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808072013524_updating review model.resx">
+      <DependentUpon>201808072013524_updating review model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

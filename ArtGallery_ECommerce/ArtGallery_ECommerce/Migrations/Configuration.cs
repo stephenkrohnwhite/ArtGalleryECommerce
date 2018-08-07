@@ -39,16 +39,16 @@ namespace ArtGallery_ECommerce.Migrations
             //                new Status { Name = "Complete" }
             //                );
 
-            context.Categories.AddOrUpdate(
-                p => p.Name,
-                new Categories { Name = "Abstract" },
-                new Categories { Name = "Art Nouveau" },
-                new Categories { Name = "Impressionism" },
-                new Categories { Name = "Realism" },
-                new Categories { Name = "Expressionism" },
-                new Categories { Name = "Photorealism" },
-                new Categories { Name = "Pop Art" }
-                );
+            //context.Categories.AddOrUpdate(
+            //    p => p.Name,
+            //    new Categories { Name = "Abstract" },
+            //    new Categories { Name = "Art Nouveau" },
+            //    new Categories { Name = "Impressionism" },
+            //    new Categories { Name = "Realism" },
+            //    new Categories { Name = "Expressionism" },
+            //    new Categories { Name = "Photorealism" },
+            //    new Categories { Name = "Pop Art" }
+            //    );
         }
     }
 }
