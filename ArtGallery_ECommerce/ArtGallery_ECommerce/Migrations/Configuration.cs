@@ -27,27 +27,28 @@ namespace ArtGallery_ECommerce.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-            //context.Categories.AddOrUpdate(
-            //    p => p.Name,
-            //    new Categories { Name = "Abstract" },
-            //    new Categories { Name = "Art Nouveau" },
-            //    new Categories { Name = "Impressionism" },
-            //    new Categories { Name = "Realism" },
-            //    new Categories { Name = "Expressionism" },
-            //    new Categories { Name = "Photorealism" },
-            //    new Categories { Name = "Pop Art" }
-            //    );
-            //context.ProductSize.AddOrUpdate(
+            //            context.ProductSize.AddOrUpdate(
             //    p => p.Size,
             //    new ProductSize { Size = "12\" x 16\"" },
             //    new ProductSize { Size = "24\" x 36\"" },
             //    new ProductSize { Size = "36\" x 48\"" }
             //);
-            //context.Status.AddOrUpdate(
-            //    s => s.Name,
-            //    new Status { Name = "Processing" },
-            //    new Status { Name = "Complete" }
-            //    );
+            //            context.Status.AddOrUpdate(
+            //                s => s.Name,
+            //                new Status { Name = "Processing" },
+            //                new Status { Name = "Complete" }
+            //                );
+
+            context.Categories.AddOrUpdate(
+                p => p.Name,
+                new Categories { Name = "Abstract" },
+                new Categories { Name = "Art Nouveau" },
+                new Categories { Name = "Impressionism" },
+                new Categories { Name = "Realism" },
+                new Categories { Name = "Expressionism" },
+                new Categories { Name = "Photorealism" },
+                new Categories { Name = "Pop Art" }
+                );
         }
     }
 }
