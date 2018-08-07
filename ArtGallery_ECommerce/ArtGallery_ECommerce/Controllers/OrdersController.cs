@@ -200,19 +200,10 @@ namespace ArtGallery_ECommerce.Controllers
                 db.SaveChanges();
                 if(order.StatusId == 2)
                 {
-                    ////var sender = new MailgunSender(
-                    ////"sandboxd9f10ded9b9c4aad924d6213d5c8263b.mailgun.org", // Mailgun Domain
-                    ////PrivateAPIKeys.MailgunAPI // Mailgun API Key
-                    ////);
-                    ////Email.DefaultSender = sender;
-                    ////var email = Email
-                    //// .From("paintedplunders@gmail.com")
-                    //// .To("paintedplunders@gmail.com")
-                    //// .Subject("Order Processed")
-                    //// .Body("Thank you for shopping with Painted Plunders!");
-
-                    ////sender.Send(email);
-                    APIFucnction.Send("Order Processed", "paintedplunders@gmail.com", "Thank you for shopping with Painted Plunders!");
+                    string subject = "Order processed";
+                    string to = "paintedplunders@gmail.com"; // normally would use order.buyer.email, but for testing/demo purposes we are hardcoding
+                    string body = "Thank you for choosing Painted Plunders!";
+                    APIFucnction.SendSimpleMessage(subject, to, body);
                 }
                 return RedirectToAction("Index");
             }
