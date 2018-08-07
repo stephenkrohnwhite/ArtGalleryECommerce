@@ -15,7 +15,7 @@ namespace ArtGallery_ECommerce.Utils
                 return stripeAPISK;
             }
         }
-        private static string mailgunAPI = "7efe8d73-8e94d86a";
+        private static string mailgunAPI = "771aaf4e126383b8583c1032aa2f5a82-7efe8d73-8e94d86a";
         public static string MailgunAPI
         {
             get

@@ -9,19 +9,23 @@ namespace ArtGallery_ECommerce.Utils
 {
     public static class APIFucnction
     {
-        public static void Send(string Subject, string To, string Body)
+
+        public static IRestResponse SendSimpleMessage(string subject, string to, string body)
         {
             RestClient client = new RestClient();
-            client.BaseUrl = new Uri("https://api.mailgun.net/v2");
-            client.Authenticator = new HttpBasicAuthenticator("api", PrivateAPIKeys.MailgunAPI);
+            client.BaseUrl = new Uri("https://api.mailgun.net/v3");
+            client.Authenticator =
+                new HttpBasicAuthenticator("api",
+                                            PrivateAPIKeys.MailgunAPI);
             RestRequest request = new RestRequest();
-            request.Resource = "sandboxd9f10ded9b9c4aad924d6213d5c8263b.mailgun.org";
-            request.AddParameter("from", "Painted Plunders LLC - paintedplunders.com");
-            request.AddParameter("to", To);
-            request.AddParameter("subject", Subject);
-            request.AddParameter("text", Body);
+            request.AddParameter("domain", "sandboxd9f10ded9b9c4aad924d6213d5c8263b.mailgun.org", ParameterType.UrlSegment);
+            request.Resource = "{domain}/messages";
+            request.AddParameter("from", "mailgun@sandboxd9f10ded9b9c4aad924d6213d5c8263b.mailgun.org");
+            request.AddParameter("to", to);
+            request.AddParameter("subject", subject);
+            request.AddParameter("text", body);
             request.Method = Method.POST;
-            client.Execute(request);
+            return client.Execute(request);
         }
     }
 }
