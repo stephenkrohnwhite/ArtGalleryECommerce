@@ -40,5 +40,7 @@ namespace ArtGallery_ECommerce.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<ArtGallery_ECommerce.Models.Review> Reviews { get; set; }
     }
 }

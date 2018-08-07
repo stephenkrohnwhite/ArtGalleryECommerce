@@ -208,45 +208,18 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CheckoutController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
-    <Compile Include="Migrations\201808061647573_readding all models.cs" />
-    <Compile Include="Migrations\201808061647573_readding all models.Designer.cs">
-      <DependentUpon>201808061647573_readding all models.cs</DependentUpon>
+    <Compile Include="Controllers\ReviewsController.cs" />
+    <Compile Include="Migrations\201808071728145_InitialMigration.cs" />
+    <Compile Include="Migrations\201808071728145_InitialMigration.Designer.cs">
+      <DependentUpon>201808071728145_InitialMigration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808061650379_dropping list cartitems in order table.cs" />
-    <Compile Include="Migrations\201808061650379_dropping list cartitems in order table.Designer.cs">
-      <DependentUpon>201808061650379_dropping list cartitems in order table.cs</DependentUpon>
+    <Compile Include="Migrations\201808071845041_Adding Review Model.cs" />
+    <Compile Include="Migrations\201808071845041_Adding Review Model.Designer.cs">
+      <DependentUpon>201808071845041_Adding Review Model.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808062330424_adding migrated cart to orderitem table.cs" />
-    <Compile Include="Migrations\201808062330424_adding migrated cart to orderitem table.Designer.cs">
-      <DependentUpon>201808062330424_adding migrated cart to orderitem table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808062332509_test.cs" />
-    <Compile Include="Migrations\201808062332509_test.Designer.cs">
-      <DependentUpon>201808062332509_test.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808062333597_adding orderitem model to migrate from cart.cs" />
-    <Compile Include="Migrations\201808062333597_adding orderitem model to migrate from cart.Designer.cs">
-      <DependentUpon>201808062333597_adding orderitem model to migrate from cart.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808062345311_removing fk pointer in order model.cs" />
-    <Compile Include="Migrations\201808062345311_removing fk pointer in order model.Designer.cs">
-      <DependentUpon>201808062345311_removing fk pointer in order model.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808070001451_checkin to see if virtual is creating extra db products.cs" />
-    <Compile Include="Migrations\201808070001451_checkin to see if virtual is creating extra db products.Designer.cs">
-      <DependentUpon>201808070001451_checkin to see if virtual is creating extra db products.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808070004408_testing setting product as FK in cart.cs" />
-    <Compile Include="Migrations\201808070004408_testing setting product as FK in cart.Designer.cs">
-      <DependentUpon>201808070004408_testing setting product as FK in cart.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808070020112_testing.cs" />
-    <Compile Include="Migrations\201808070020112_testing.Designer.cs">
-      <DependentUpon>201808070020112_testing.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808070039393_testing1.cs" />
-    <Compile Include="Migrations\201808070039393_testing1.Designer.cs">
-      <DependentUpon>201808070039393_testing1.cs</DependentUpon>
+    <Compile Include="Migrations\201808072013524_updating review model.cs" />
+    <Compile Include="Migrations\201808072013524_updating review model.Designer.cs">
+      <DependentUpon>201808072013524_updating review model.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -274,6 +247,7 @@
     <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\Products.cs" />
     <Compile Include="Models\ProductSize.cs" />
+    <Compile Include="Models\Review.cs" />
     <Compile Include="Models\ShoppingCart.cs" />
     <Compile Include="Models\Status.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -382,6 +356,11 @@
     <Content Include="Views\Orders\PickList.cshtml" />
     <Content Include="Views\Orders\Details.cshtml" />
     <Content Include="Views\Orders\Edit.cshtml" />
+    <Content Include="Views\Reviews\Create.cshtml" />
+    <Content Include="Views\Reviews\Delete.cshtml" />
+    <Content Include="Views\Reviews\Details.cshtml" />
+    <Content Include="Views\Reviews\Edit.cshtml" />
+    <Content Include="Views\Reviews\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -400,35 +379,14 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201808061647573_readding all models.resx">
-      <DependentUpon>201808061647573_readding all models.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808071728145_InitialMigration.resx">
+      <DependentUpon>201808071728145_InitialMigration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808061650379_dropping list cartitems in order table.resx">
-      <DependentUpon>201808061650379_dropping list cartitems in order table.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808071845041_Adding Review Model.resx">
+      <DependentUpon>201808071845041_Adding Review Model.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808062330424_adding migrated cart to orderitem table.resx">
-      <DependentUpon>201808062330424_adding migrated cart to orderitem table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808062332509_test.resx">
-      <DependentUpon>201808062332509_test.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808062333597_adding orderitem model to migrate from cart.resx">
-      <DependentUpon>201808062333597_adding orderitem model to migrate from cart.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808062345311_removing fk pointer in order model.resx">
-      <DependentUpon>201808062345311_removing fk pointer in order model.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808070001451_checkin to see if virtual is creating extra db products.resx">
-      <DependentUpon>201808070001451_checkin to see if virtual is creating extra db products.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808070004408_testing setting product as FK in cart.resx">
-      <DependentUpon>201808070004408_testing setting product as FK in cart.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808070020112_testing.resx">
-      <DependentUpon>201808070020112_testing.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808070039393_testing1.resx">
-      <DependentUpon>201808070039393_testing1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808072013524_updating review model.resx">
+      <DependentUpon>201808072013524_updating review model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
