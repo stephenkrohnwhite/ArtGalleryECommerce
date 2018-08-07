@@ -1,4 +1,7 @@
 ﻿using ArtGallery_ECommerce.Models;
+using ArtGallery_ECommerce.Utils;
+using FluentEmail.Core;
+using FluentEmail.Mailgun;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
@@ -13,7 +16,9 @@ namespace ArtGallery_ECommerce
         {
             ConfigureAuth(app);
             createRoles();
+            
         }
+
         private void createRoles()
         {
             ApplicationDbContext context = new ApplicationDbContext();

@@ -2,7 +2,6 @@
 
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Details</h2>
@@ -12,19 +11,28 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Buyer.FirstName)
+            <p>Name</p>
+            
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Buyer.FirstName)
+            @(Model.Buyer.FirstName + " " + Model.Buyer.LastName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.OrderStatus.Name)
+            <p>Order Status</p>
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.OrderStatus.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PublicOrderNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PublicOrderNum)
         </dd>
 
         <dt>
@@ -51,9 +59,38 @@
             @Html.DisplayFor(model => model.OrderTime)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Total)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Total)
+        </dd>
+
     </dl>
 </div>
+<div class="col-md-12">
+    <table>
+        @foreach (var item in ViewBag.ProductList)
+    {
+        <div class="col-xs-12 col-md-3">
+            <div class="thumbnail">
+                <img class="Display" src=@Url.Content(item.FileImagePath)>
+                <div class="caption text-center">
+                    <p>
+                        <b>Name:</b> <span>@item.Name</span>
+                    </p>
+                    <p>
+                        <b>Price:</b> <span>@item.Price USD</span>
+                    </p>
+                   
+                </div>
+            </div>
+        </div>
+}
+    </table>
+</div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OrderId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
