@@ -47,68 +47,11 @@ namespace ArtGallery_ECommerce.Controllers
 
             return View(product);
         }
-        //public ActionResult Create()
-        //{
-        //    return View(new ImageViewModel());
-        //}
 
-        // POST: Products/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Create(HttpPostedFileBase file, [Bind(Include = "ProductId,Name,Artist,Price,InStock,Description,ProductSizeId,CategoryId")] Products products)
-        //{
-        //    try
-        //    {
-        //        if (file.ContentLength > 0)
-        //        {
-        //            string _FileName = Path.GetFileName(file.FileName);
-        //            string _path = Path.Combine(Server.MapPath("~/Content"), _FileName);
-        //            file.SaveAs(_path);
-        //            products.FileImagePath = _path;
-        //        }
-        //        ViewBag.Message = "File Uploaded Successfully!!";
-                
-        //    }
-        //    catch
-        //    {
-        //        ViewBag.Message = "File upload failed!!";
-        //        return View();
-        //    }
-        //    if (ModelState.IsValid)
-        //    {
-
-        //        db.Products.Add(products);
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
-
-        //    ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Name", products.CategoryId);
-        //    ViewBag.ProductSizeId = new SelectList(db.ProductSize, "ProductSizeId", "Size", products.ProductSizeId);
-        //    return View(/*products*/);
-        //}
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(ImageViewModels model)
         {
-            var validImageTypes = new string[]
-            {
-        "image/gif",
-        "image/jpeg",
-        "image/pjpeg",
-        "image/png"
-            };
-
-            //if (model.ImageUpload == null || model.ImageUpload.ContentLength == 0)
-            //        {
-            //            ModelState.AddModelError("ImageUpload", "This field is required");
-            //        }
-            //        else if (!validImageTypes.Contains(model.ImageUpload.ContentType))
-            //        {
-            //            ModelState.AddModelError("ImageUpload", "Please choose either a GIF, JPG or PNG image.
-            //        }
-
             if (ModelState.IsValid)
             {
                 var image = new Products();

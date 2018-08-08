@@ -217,6 +217,10 @@
     <Compile Include="Migrations\201808072313541_adding review model.Designer.cs">
       <DependentUpon>201808072313541_adding review model.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808072328597_testing.cs" />
+    <Compile Include="Migrations\201808072328597_testing.Designer.cs">
+      <DependentUpon>201808072328597_testing.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
@@ -380,6 +384,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808072313541_adding review model.resx">
       <DependentUpon>201808072313541_adding review model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808072328597_testing.resx">
+      <DependentUpon>201808072328597_testing.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

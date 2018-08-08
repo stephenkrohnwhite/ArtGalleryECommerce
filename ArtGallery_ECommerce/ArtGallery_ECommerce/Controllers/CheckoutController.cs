@@ -1,4 +1,5 @@
 ﻿using ArtGallery_ECommerce.Models;
+using ArtGallery_ECommerce.Utils;
 using Stripe;
 using System;
 using System.Collections.Generic;
@@ -61,7 +62,7 @@ namespace ArtGallery_ECommerce.Controllers
                 }
                 db.Order.Add(order);
                 db.SaveChanges();
-                
+                APIFucnction.SendSimpleMessage("Your order has been placed", "paintedplunders@gmail.com", "Thank you for choosing PaintedPlunders");
                 
                 foreach(var item in cartProduct)
                 {

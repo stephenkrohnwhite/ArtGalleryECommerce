@@ -39,7 +39,7 @@ namespace ArtGallery_ECommerce.Controllers
         // GET: Reviews/Create
         public ActionResult Create(Products item)
         {
-            ViewBag.ProductName = new SelectList(db.Products, "ProductName", "Name");
+            ViewBag.ProductId = new SelectList(db.Products, "ProductId", "Name");
             return View();
         }
 
@@ -48,11 +48,14 @@ namespace ArtGallery_ECommerce.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ReviewDate,ReviewId,ProductId,Artist,ReviewText")] Review review)
+        public ActionResult Create([Bind(Include = "ReviewDate,ReviewId,Artist,ReviewText,ProductId")] Review review)
         {
             if (ModelState.IsValid)
             {
                 review.Artist = db.Products.Where(c => c.ProductId == review.ProductId).First().Artist;
+                review.ProductRef = db.Products.Where(p => p.Artist == review.Artist).First();                review.ProductName = review.ProductRef.Name;
+                DateTime dt = DateTime.Now;
+                review.ReviewDate = dt;
                 db.Reviews.Add(review);
                 db.SaveChanges();
                 return RedirectToAction("Index", "Orders");
